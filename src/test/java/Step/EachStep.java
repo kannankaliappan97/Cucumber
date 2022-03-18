@@ -9,54 +9,68 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class EachStep {
+    String Id="id";
+    String Xpath ="xpath";
+
     MySteps step = new MySteps();
     public void login(WebDriver driver,String username, String password) throws InterruptedException {
-        locator("id", driver, step.userName);
-        driver.findElement(By.id(step.userName)).sendKeys(username);
+        locator(Id, driver, step.userName);
+        sendKey(Id,driver,step.userName,username);
         step.waitElememt(driver);
-        //locator("id", driver, step.passWord);
-        driver.findElement(By.id(step.passWord)).sendKeys(password);
+
+        sendKey(Id,driver,step.passWord,password);
        step.waitElememt(driver);
-       // locator("id", driver, step.login);
-        driver.findElement(By.id(step.login)).click();
+
+        clickCall(Id,driver,step.login);
+
         step.waitElememt(driver);
     }
 
     public void addCart(WebDriver driver) throws InterruptedException {
        // locator("xpath", driver, step.producet1);
-        driver.findElement(By.xpath(step.producet1)).click();
         step.waitElememt(driver);
-       // locator("xpath", driver, step.producet2);
-        driver.findElement(By.xpath(step.producet2)).click();
+        clickCall(Xpath,driver,step.producet1);
+
+        step.waitElememt(driver);
+
+        clickCall(Xpath,driver,step.producet2);
        step.waitElememt(driver);
-       // locator("xpath", driver, step.producet3);
-        driver.findElement(By.xpath(step.producet3)).click();
+        clickCall(Xpath,driver,step.producet3);
+
         step.waitElememt(driver);
-       // locator("xpath", driver, step.producet4);
-        driver.findElement(By.xpath(step.producet4)).click();
+
+        clickCall(Xpath,driver,step.producet4);
+
         step.waitElememt(driver);
-        //locator("xpath", driver, step.cart);
-        driver.findElement(By.xpath(step.cart)).click();
+
+        clickCall(Xpath,driver,step.cart);
+
         step.waitElememt(driver);
-        //locator("id", driver, step.chekout);
-        driver.findElement(By.id(step.chekout)).click();
+
+        clickCall(Id,driver,step.chekout);
+
     }
 
     public void addressValidation(WebDriver driver, String Fname,String Lname, String Zcode) throws InterruptedException {
       //  locator("id", driver, step.fName);
-        driver.findElement(By.id(step.fName)).sendKeys(Fname);
+        sendKey(Id,driver,step.fName,Fname);
+
         step.waitElememt(driver);
         //locator("id", driver, step.lName);
-        driver.findElement(By.id(step.lName)).sendKeys(Lname);
+        sendKey(Id,driver,step.lName,Lname);
+
         step.waitElememt(driver);
-       // locator("id", driver, step.zcode);
-        driver.findElement(By.id(step.zcode)).sendKeys(Zcode);
+
+        sendKey(Id,driver,step.zcode,Zcode);
+
         step.waitElememt(driver);
        // locator("id", driver, step.next);
-        driver.findElement(By.id(step.next)).click();
+        clickCall(Id,driver,step.next);
+
         //locator("id", driver, step.done);
         step.waitElememt(driver);;
-        driver.findElement(By.id(step.done)).click();
+        clickCall(Id, driver,step.done);
+       // driver.findElement(By.id(step.done)).click();
     }
 
     public void assertification(WebDriver driver) throws InterruptedException {
@@ -81,5 +95,24 @@ public class EachStep {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
 
         }
+    }
+
+    public void sendKey( String ID,WebDriver driver, String path, String data){
+        if(ID.equalsIgnoreCase(Id)){
+            driver.findElement(By.id(path)).sendKeys(data);
+        }
+        if(ID.equalsIgnoreCase(Xpath)){
+            driver.findElement(By.xpath(path)).sendKeys(data);
+        }
+
+    }
+    public void clickCall( String ID, WebDriver driver, String path){
+        if(ID.equalsIgnoreCase(Id)){
+            driver.findElement(By.id(path)).click();
+        }
+        if(ID.equalsIgnoreCase(Xpath)){
+            driver.findElement(By.xpath(path)).click();
+        }
+
     }
 }
