@@ -14,12 +14,19 @@ public class EachStep {
 
     MySteps step = new MySteps();
     public void login(WebDriver driver,String username, String password) throws InterruptedException {
+        locator("id", driver, step.userName);
+        sendKey("id",driver,step.userName,username);
         locator(Id, driver, step.userName);
         sendKey(Id,driver,step.userName,username);
         step.waitElememt(driver);
+        //locator("id", driver, step.passWord);
+        sendKey("id",driver,step.passWord,password);
 
         sendKey(Id,driver,step.passWord,password);
        step.waitElememt(driver);
+       // locator("id", driver, step.login);
+        clickCall(Id,driver,step.login);
+        //driver.findElement(By.id(step.login)).click();
 
         clickCall(Id,driver,step.login);
 
@@ -68,7 +75,7 @@ public class EachStep {
         clickCall(Id,driver,step.next);
 
         //locator("id", driver, step.done);
-        step.waitElememt(driver);;
+        step.waitElememt(driver);
         clickCall(Id, driver,step.done);
        // driver.findElement(By.id(step.done)).click();
     }
