@@ -10,6 +10,7 @@ Feature: Sample url test
     Examples:
     |browser| URL|Username|Password|
     |chrome |https://www.saucedemo.com/    |standard_user |secret_sauce|
+    |chrome |https://www.saucedemo.com/    |problem_user |secret_sauce|
 
   @e2e @all
   Scenario Outline: Test url

@@ -70,7 +70,7 @@ public class EachStep {
         //locator("id", driver, step.done);
         step.waitElememt(driver);
         clickCall(Id, driver,step.done);
-       // driver.findElement(By.id(step.done)).click();
+
     }
 
     public void assertification(WebDriver driver) throws InterruptedException {
