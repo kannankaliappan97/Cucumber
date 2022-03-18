@@ -6,3 +6,4 @@
 # @e2e tag it execute till Thanks message
 # @login tag execute til login page
 # @Api hit the get and post call
+We  can see the  execution report/result  on HTML and JSOn formate in html report under the target DIR
