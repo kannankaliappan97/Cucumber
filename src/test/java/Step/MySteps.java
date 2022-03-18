@@ -24,6 +24,7 @@ public class MySteps {
     String zcode="postal-code";
     String done="finish";
     private Object WebDriver;
+    String exp ="THANK YOU FOR YOUR ORDER" ;
 
     public void waitElememt(WebDriver driver) throws InterruptedException {
 

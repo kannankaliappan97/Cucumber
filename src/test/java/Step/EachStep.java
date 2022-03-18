@@ -74,9 +74,9 @@ public class EachStep {
     }
 
     public void assertification(WebDriver driver) throws InterruptedException {
-        String exp ="THANK YOU FOR YOUR ORDER" ;
-        String actula = driver.findElement(By.xpath("//h2")).getText();
-        Assert.assertEquals(exp, actula);
+       // String exp ="THANK YOU FOR YOUR ORDER" ;
+        String actul = driver.findElement(By.xpath("//h2")).getText();
+        Assert.assertEquals(step.exp, actul);
         step.waitElememt(driver);
     }
 
